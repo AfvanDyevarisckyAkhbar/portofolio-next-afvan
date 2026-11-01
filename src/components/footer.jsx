@@ -3,7 +3,7 @@ export default function Footer(){
 
 return(
     <footer className="mt-auto bg-footer p-6 text-center text-latar">
-        <p>&copy; {tahun} Muhammad Aiko Anail Adi. Dibuat dengan Next.js di kelas Industri UBIG.</p>
+        <p>&copy; {tahun} Afvan Dyevariscky Akhbar. Dibuat dengan Next.js di kelas Industri UBIG.</p>
     </footer>
 );
 }
