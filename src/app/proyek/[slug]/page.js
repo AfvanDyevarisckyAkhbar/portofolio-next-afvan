@@ -1,4 +1,4 @@
-import Proyekcard from "@/components/ProyekCard";
+import ProyekCard from "@/components/ProyekCard";
 import { proyek } from "@/data/proyek";
 export default function Proyek() {
    return (
