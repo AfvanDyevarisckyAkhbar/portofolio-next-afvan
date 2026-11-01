@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Proyekcard({ proyek }) {
+export default function ProyekCard({ proyek }) {
     return (
         <Link
             href={`/proyek/${proyek.slug}`}

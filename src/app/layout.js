@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Afvan Dyevariscky Akhabr - Portofolio",
+  title: "Afvan Dyevariscky Akhbar - Portofolio",
   description: "Portofolio Afvan Dyevariscky Akhbar, Siswa SMK calon Junior Web Developer di kelas industri UBIG",
 };
 
