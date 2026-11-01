@@ -31,7 +31,7 @@ export default function kontak() {
                                 type="text"
                                 id="nama"
                                 name="nama"
-                                placeholder="Contoh: Budi Santoso"
+                                placeholder="Contoh: Andi Simalatunggal"
                                 required
                                 className="mt-2 w-full rounded-lg border border-gray-300 bg-white p-3"
                                 onChange={(e) =>{
@@ -148,12 +148,12 @@ export default function kontak() {
                                     GitHub
                                 </h3>
                                 <Link
-                                    href="https://github.com"
+                                    href="https://github.com/AfvanDyevarisckyAkhbar"
                                     target="_blank"
                                     className="mt-1.5 inline-block text-sm text-aksen hover:underline"
                                     rel="noopener noreferrer"
                                 >
-                                    @aikorplkanesa-creator
+                                    @AfvanDyevarisckyAkhbar
                                 </Link>
                             </div>
 
@@ -165,7 +165,7 @@ export default function kontak() {
                                     href="mailto:aikorplkanesa@gmail.com"
                                     className="mt-1.5 inline-block w-full break-all text-sm text-aksen hover:underline"
                                 >
-                                    aikorplkanesa@gmail.com
+                                    afvankanesa@gmail.com
                                 </a>
                             </div>
                         </div>
