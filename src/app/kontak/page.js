@@ -13,7 +13,7 @@ export default function kontak() {
             <div className="grid gap-6 md:grid-cols-3 w-full">
 
                 
-         
+        
                 <section className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8 shadow-sm md:col-span-2">
 
                 
@@ -162,7 +162,7 @@ export default function kontak() {
                                     Email
                                 </h3>
                                 <a
-                                    href="mailto:aikorplkanesa@gmail.com"
+                                    href="mailto:afvankanesa@gmail.com"
                                     className="mt-1.5 inline-block w-full break-all text-sm text-aksen hover:underline"
                                 >
                                     afvankanesa@gmail.com

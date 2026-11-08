@@ -1,134 +1,70 @@
-import Image from "next/image";
 import Link from "next/link";
+import Hero from "@/components/Hero";
+import ProyekCard from "@/components/ProyekCard";
 import { proyek } from "@/data/proyek";
+import FilterKeahlian from "@/components/FilterKeahlian";
 
-const daftarSkills = [
-  { nama: "HTML", level: "Menengah", slug: "HTML" },
-  { nama: "CSS", level: "Menengah", slug: "CSS" },
-  { nama: "Git dan GitHub", level: "Dasar", slug: "Git dan Github" },
-  { nama: "Desain poster dengan Canva", level: "Mahir", slug: "Desain poster dengan canva" },
-  { nama: "JavaScript", level: "Dasar", slug: "JavaScript" },
-];
+export default async function Page() {
+  const skills = [
+    { id: 1, nama: "HTML", level: "Menengah" },
+    { id: 2, nama: "CSS", level: "Menengah" },
+    { id: 3, nama: "Git dan GitHub", level: "Dasar" },
+    { id: 4, nama: "Desain poster dengan Canva", level: "Mahir" },
+    { id: 5, nama: "JavaScript", level: "Dasar" },
+  ];
 
-export default function Home() {
-  const dataProyekTerbaru = proyek.slice(0, 3);
-  
+  const proyekTerbaru = proyek.slice(-3);
+
   return (
-    <main className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-      
-  
-      <section className="flex flex-col md:flex-row items-center gap-6 md:gap-8 mb-16 text-center md:text-left">
+    <div className="min-h-screen text-gray-800 dark:text-gray-100 flex flex-col font-sans">
+      <main className="max-w-5xl mx-auto p-4 md:p-10 w-full space-y-12">
         
-        
-        <div className="relative w-36 h-36 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-red-650 shadow-md flex-shrink-0">
-          <Image
-            src="/foto-diri.jpg"
-            alt="Foto Afvan Dyevariscky Akhbar"
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+        {/* Section 1: Hero */}
+        <Hero
+          nama="Afvan Dyevariscky Akhbar"
+          tagline="Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri UBIG." 
+          // Note: Jika fungsi scroll-to-section dibutuhkan di Hero, 
+          // pastikan logika interaksinya diatur di dalam komponen Hero (Client Component) itu sendiri.
+        />
 
-        
-        <div className="flex flex-col justify-center">
-          <h1 className="text-3xl md:text-5xl font-extrabold text-utama-navy tracking-tight leading-tight">
-            Halo, saya Afvan Dyevariscky Akhbar
-          </h1>
-          <p className="mt-3 text-sm md:text-base text-gray-600 font-medium max-w-xl">
-            Siswa kelas X SMK, calon Junior Web Developer di Kelas Industri UBIG.
-          </p>
+        {/* Section: Keahlian */}
+        <section id="keahlian" className="scroll-mt-6">
+          <h2 className="text-xl font-bold text-utama dark:text-sky-200 mb-5">Keahlian</h2>
+          
+          {/* Ketentuan 5: Mengganti div kartu keahlian lama dengan <FilterKeahlian /> */}
+          <FilterKeahlian skills={skills} />
 
-        
-          <div className="mt-6 flex flex-wrap gap-3 justify-center md:justify-start">
+          <div className="mt-8 flex justify-start">
             <Link 
-  href="/tentang" 
-  className="bg-red-600 text-white text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-red-700 transition-all shadow-sm"
-  >
-              Tentang saya
-                </Link>
-
-            <Link 
-              href="#keahlian-section" 
-              className="bg-white border border-gray-300 text-gray-700 text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-gray-50 transition-all shadow-sm"
+              href="/keahlian" 
+              className="rounded-lg bg-red-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-red-800 transition-all text-sm"
             >
-              Lihat keahlian
+              Lihat semua keahlian
             </Link>
           </div>
-        </div>
+        </section>
 
-      </section>
-
-      <section id="keahlian-section" className="mt-16 pt-4 border-t border-gray-100">
-        <h2 className="mb-6 text-2xl font-bold text-utama">Keahlian</h2>
-        
-        <div className="grid gap-4 md:grid-cols-3">
-          {daftarSkills.map((skill) => (
+        {/* Section: Proyek Terbaru */}
+        <section className="pt-2">
+          <h2 className="mb-5 text-xl font-bold text-utama dark:text-sky-200">Proyek Terbaru</h2>
+          
+          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {proyekTerbaru.map((item) => (
+              <ProyekCard key={item.slug} proyek={item} />
+            ))}
+          </div>
+          
+          <div className="mt-8 flex justify-start">
             <Link 
-              href={`/keahlian/${skill.slug}`} 
-              key={skill.nama} 
-              className="block transition-transform hover:-translate-y-1"
+              href="/proyek" 
+              className="rounded-lg bg-red-700 px-5 py-2.5 font-semibold text-white shadow-sm hover:bg-red-800 transition-all text-sm"
             >
-
-              <div className="bg-white border border-gray-200 rounded-2xl p-6 shadow-sm">
-                <h3 className="text-lg font-bold text-utama-navy">{skill.nama}</h3>
-                <p className="text-sm text-gray-500 mt-1">Level: {skill.level}</p>
-                <span className="text-xs text-blue-600 font-semibold mt-4 inline-block hover:underline">
-                  Lihat detail &rarr;
-                </span>
-              </div>
+              Lihat semua proyek
             </Link>
-          ))}
-        </div>
+          </div>
+        </section>
 
-        <div className="mt-6">
-          <Link 
-            href="/keahlian" 
-            className="bg-red-600 text-white text-xs font-semibold px-4 py-2.5 rounded-lg hover:bg-red-700 transition-all shadow-sm"
-          >
-            Lihat semua keahlian
-          </Link>
-        </div>
-      </section>
-
-
-      <section className="mt-16 border-t border-gray-200/60 pt-12">
-        <h2 className="mb-6 text-2xl font-bold text-utama">Proyek Terbaru</h2>
-        
-        <div className="grid gap-6 md:grid-cols-3">
-          {dataProyekTerbaru.map((item) => (
-            <Link href={`/proyek/${item.slug}`} key={item.slug} className="block bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-
-              <div className="relative w-full aspect-[16/10] bg-mockup-navy flex items-center justify-center p-3">
-                <div className="relative w-full h-full rounded-lg overflow-hidden border border-gray-800">
-                  <Image 
-                    src={item.gambar} 
-                    alt={item.judul} 
-                    fill 
-                    className="object-cover object-top"
-                  />
-                </div>
-              </div>
-
-              <div className="p-5">
-                <span className="text-xs text-gray-400 font-medium">{item.minggu}</span>
-                <h3 className="text-base font-bold text-utama-navy mt-1 line-clamp-1">{item.judul}</h3>
-                <p className="text-xs text-gray-500 mt-2 line-clamp-2">{item.deskripsi}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-        
-        <div className="mt-8">
-          <Link 
-            href="/proyek" 
-            className="inline-block bg-black text-white text-xs font-semibold px-5 py-2.5 rounded-lg hover:bg-opacity-90 transition-all shadow-sm"
-          >
-            Lihat semua proyek
-          </Link>
-        </div>
-      </section>
-
-    </main>
+      </main>
+    </div>
   );
 }

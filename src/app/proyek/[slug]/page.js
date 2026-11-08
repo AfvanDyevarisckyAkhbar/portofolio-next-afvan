@@ -10,7 +10,7 @@ export default function Proyek() {
       detailnya.</p>
       <div className="mt-8 grid gap-6 md:grid-cols-3">
          {proyek.map((item) => (
-         <Proyekcard key={item.slug} proyek={item} />
+         <ProyekCard key={item.slug} proyek={item} />
          ))}
       </div>
    </main>
